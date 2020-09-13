@@ -27,6 +27,8 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent, homeChildRoutes } from './components/home/home.component';
 import { HighlightStudentDirective } from './directives/highlight-student.directive';
 import { AppRoutingModule } from './app-routing.module';
+import { BoxPageComponent } from './components/box-page/box-page.component';
+import { NgxMoveableModule, NgxMoveableComponent } from 'ngx-moveable';
 
 
 
@@ -41,7 +43,9 @@ import { AppRoutingModule } from './app-routing.module';
 		HomeComponent,
 		FilterPipe,
 		PhonePipe,
-		HighlightStudentDirective
+		HighlightStudentDirective,
+		BoxPageComponent,
+	//	NgxMoveableComponent
 	],
 	imports: [
 		BrowserModule,
@@ -50,6 +54,7 @@ import { AppRoutingModule } from './app-routing.module';
 		FormsModule,
 		ReactiveFormsModule,
 		BrowserAnimationsModule,
+		NgxMoveableModule,
 		ToastrModule.forRoot({
 			timeOut: 3000,
 			positionClass: 'toast-bottom-right',

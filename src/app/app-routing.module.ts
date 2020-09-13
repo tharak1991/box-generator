@@ -1,3 +1,4 @@
+import { BoxPageComponent } from './components/box-page/box-page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent, homeChildRoutes } from './components/home/home.component';
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'box',
+    component: BoxPageComponent
   },
   {
     path: '**',
