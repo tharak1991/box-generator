@@ -2,28 +2,28 @@
 <nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card-2" style="z-index:3;width:250px;"
   id="mySidebar">
   <!-- Logo -->
-  <img src="assets" class="logo">
+  <!-- <img src="assets" class="logo"> -->
   <!-- Sidebar Links -->
-  <a class="w3-bar-item w3-button" [ngClass]="{'w3-teal': (active === '/')}" routerLink="/"> <i
-      class="w3-medium fa fa-user"></i> User List</a>
-  <a class="w3-bar-item w3-button" routerLink="/add" [ngClass]="{'w3-teal': (active === '/add')}"> <i
-      class="w3-medium fa fa-plus"></i> Add new user</a>
-  <a class="w3-bar-item w3-button" (click)="logOut()"><i class="w3-medium fa fa-sign-out"></i> Logout</a>
 </nav>
 
 <!-- Load main contents -->
 <div class="w3-main" style="margin-left:250px;">
   <div class="w3-container">
     <div class="w3-panel w3-round-small w3-teal">
-      <h3>Box Generator <button (click)="addNewBox()" class="w3-button w3-green custom-button"><i
-            class="w3-medium  fa fa-plus"></i> Add New Box</button></h3>
+      <h3>Box Generator 
+            <button  (click)="removeBox()" class="w3-button w3-green custom-button delete"><i
+                class="w3-medium  fa fa-trash"></i>Delete Selected Box</button>
+                <button (click)="addNewBox()" class="w3-button w3-green custom-button"><i
+                    class="w3-medium  fa fa-plus"></i> Add New Box</button></h3>
     </div>
     <div class="content">
-
-      <div #target class="square">target</div>
-      <ngx-moveable [target]="target" [draggable]="true" [throttleDrag]="0" (dragStart)="onDragStart($event)"
+      
+        <div *ngFor="let box of boxes ; let i = index;"  >
+      <div [style.z-index]="box.zindex" #target class="square"  [ngClass]="{'highlight': selectedIndex === i}" (click)= "boxClick(box,i)">{{box.boxID}}</div>
+      <ngx-moveable (keydown)="move($event)" [target]="target" [draggable]="true" [throttleDrag]="0" (dragStart)="onDragStart($event)"
         (drag)="onDrag($event)" (dragEnd)="onDragEnd($event)">
       </ngx-moveable>
+    </div>
 
 
 

@@ -1,7 +1,29 @@
 .square {
-    background: #0014ff;
-    width: 10vw;
-    height: 10vw;
-    border: black;
-    border: solid;
+  background: #0014ff;
+  width: 10vw;
+  height: 10vw;
+  border: black;
+  border: solid;
+  position: absolute;
+  z-index : +1;
+}
+
+#target {
+  margin-bottom: 20%;
+}
+
+.highlight {
+  background: red;
+  width: 10vw;
+  height: 10vw;
+  border: black;
+  border: solid;
+}
+
+.delete{
+    background-color: red !important;
+}
+
+#mySidebar{
+    background-color: #e7ea00;
 }
