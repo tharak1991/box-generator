@@ -1,6 +1,6 @@
 # Angular Version 8 - Demo CRUD Application / Project for Beginners
-# Student Management
-### Created By [Sangwin Gawande](http://sangw.in)
+# Moveable box
+### Created By [Tarak Sreedhar](Moveable box)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.1.
 

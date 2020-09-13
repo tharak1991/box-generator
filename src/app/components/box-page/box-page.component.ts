@@ -4,9 +4,9 @@ import { NgxMoveableComponent } from 'ngx-moveable';
 class Box {
   boxID: number;
   zindex: number;
-  constructor(boxID: number,zindex: number) {
+  constructor(boxID: number, zindex: number) {
     this.boxID = boxID;
-    this.zindex = -zindex ;
+    this.zindex = -zindex;
   }
 
 }
@@ -17,62 +17,65 @@ class Box {
   styleUrls: ['./box-page.component.scss']
 })
 
-
 export class BoxPageComponent implements OnInit {
 
   frame = {
     translate: [0, 0],
   };
 
-  boxes : Box[] = [];
-  box:Box ;
-  size: number = 1;
+  boxes: Box[] = [];
+  box: Box;
 
-  selectedIndex: number ;
+  size: number = 1;
+  selectedIndex: number;
   zindexvalue: number = -10;
   zindexMax: number = -10;
 
   constructor() { }
 
   ngOnInit() {
-    this.box = new Box(this.size, this.zindexvalue);    
+    this.box = new Box(this.size, this.zindexvalue);
     this.boxes.push(this.box);
+
     this.size = this.boxes.length;
-    this.zindexMax =  this.boxes[this.boxes.length - 1].zindex ;
+    this.zindexMax = this.boxes[this.boxes.length - 1].zindex;
   }
 
   addNewBox = () => {
- 
-    if(this.boxes.length >= 1){
-      this.zindexMax =  this.boxes[this.boxes.length - 1].zindex ;
+
+    if (this.boxes.length >= 1) {
+
+      this.zindexMax = this.boxes[this.boxes.length - 1].zindex;
       this.size = this.boxes[this.boxes.length - 1].boxID + 1;
-    }else {
-      this.zindexMax =  -10 ;
+
+    } else {
+
+      this.zindexMax = -10;
       this.size = 1;
+
     }
-    
-    this.zindexvalue = this.zindexMax + 10 ;
-    this.box = new Box(this.size,  this.zindexvalue);  
+
+    this.zindexvalue = this.zindexMax + 10;
+    this.box = new Box(this.size, this.zindexvalue);
     this.boxes.push(this.box);
   }
 
-  removeBox = () =>{
-    this.boxes.splice( this.selectedIndex, 1);
-
+  removeBox = () => {
+    this.boxes.splice(this.selectedIndex, 1);
   }
 
   move(event: any) {
     console.log(event.keyCode);
   }
 
-  boxClick(box, index){
+  boxClick(box, index) {
     console.log(box);
     this.selectedIndex = index;
   }
 
-   setRow(_index: number) {
+  setRow(_index: number) {
     this.selectedIndex = _index;
-   }
+  }
 
   onDragStart({ set }) {
     set(this.frame.translate);
