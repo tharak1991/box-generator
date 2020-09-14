@@ -61,7 +61,7 @@ export class BoxPageComponent implements OnInit {
   }
 
   removeBox = () => {
-    if (this.selectedIndex = -1) {
+    if (this.selectedIndex == -1) {
       alert('Please select a box to delete!!!');
     } else {
       this.boxes.splice(this.selectedIndex, 1);
