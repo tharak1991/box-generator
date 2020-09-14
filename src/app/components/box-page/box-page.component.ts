@@ -61,7 +61,11 @@ export class BoxPageComponent implements OnInit {
   }
 
   removeBox = () => {
-    this.boxes.splice(this.selectedIndex, 1);
+    if (this.selectedIndex = -1) {
+      alert('Please select a box to delete!!!');
+    } else {
+      this.boxes.splice(this.selectedIndex, 1);
+    }
   }
 
   move(event: any) {
@@ -69,8 +73,14 @@ export class BoxPageComponent implements OnInit {
   }
 
   boxClick(box, index) {
-    console.log(box);
-    this.selectedIndex = index;
+
+    if (index != this.selectedIndex) {
+      this.selectedIndex = index;
+    } else {
+      this.selectedIndex = -1;
+    }
+    console.log(this.selectedIndex);
+
   }
 
   setRow(_index: number) {
